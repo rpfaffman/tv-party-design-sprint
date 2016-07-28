@@ -3,7 +3,7 @@ import styles from './ListItem.scss';
 
 const thumbParamsWide = '?crop=auto&scale=both&width=423&height=220'
 
-import logo from 'images/add.png'
+// import logo from 'images/add.png'
 
 
 export default class ListItem extends Component {
