@@ -1,0 +1,8 @@
+.default {
+  display: flex;
+  flex-direction: row;
+  margin: 5px 0;
+  .details {
+    flex-direction: column;
+  }
+}

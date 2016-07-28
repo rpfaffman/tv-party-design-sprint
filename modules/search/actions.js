@@ -38,7 +38,19 @@ export function search(term) {
       .then(response => response.json())
       .then(json => {
         if (json.errors)  {throw new Error('Search failed')}
+        // if (json.artists && json.artists.length) {
+        //   const topArtist = json.artists[0].name
+        //   console.log(topArtist, '===================')
+        //   searchAPI.search(topArtist)
+        //     .then(res => res.json())
+        //     .then(artistVids => {
+              // const combined = {...json, ...artistVids}
+              // console.log(combined)
+              // dispatch(setResults(combined))
+          // }
+        // } else {
         dispatch(setResults(json))
+        // }
         return json
       })
       .catch(error => {
