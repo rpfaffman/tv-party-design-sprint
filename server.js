@@ -1,12 +1,13 @@
 var webpack = require('webpack');
 var webpackDevMiddleware = require('webpack-dev-middleware');
 var webpackHotMiddleware = require('webpack-hot-middleware');
+var bodyParser = require('body-parser');
 var config = require('./webpack.local.config');
 
 var app = new require('express')();
 var port = 8080;
 
-var QUEUE = []
+var QUEUE = [];
 
 var compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, {
@@ -14,29 +15,28 @@ app.use(webpackDevMiddleware(compiler, {
   publicPath: config.output.publicPath
 }));
 app.use(webpackHotMiddleware(compiler));
+app.use(bodyParser.json());
 
-app.get('/', function(req, res) {
-  res.sendFile(__dirname + '/index.html');
-});
-
-app.get('/queue', function(req, res) {
+app.get('/api/queue', function(req, res) {
   res.status(200).json(QUEUE);
 });
 
-app.delete('/', function(req, res) {
+app.post('/api/queue', function(req, res) {
+  QUEUE.push(req.body);
+  res.status(200).json(QUEUE);
+});
+
+app.delete('/api/queue', function(req, res) {
   if (QUEUE.length) {
     QUEUE.shift();
     res.status(200).json(QUEUE);
   } else {
-    res.status(500).json({
-      error: { message: "Queue is empty." }
-    });
+    res.status(500).json(QUEUE);
   }
 });
 
-app.post('/queue/:isrc', function(req, res) {
-  QUEUE.push(req.params.isrc);
-  res.status(200).json(QUEUE);
+app.use(function(req, res) {
+  res.sendFile(__dirname + '/index.html');
 });
 
 app.listen(port, function(error) {
