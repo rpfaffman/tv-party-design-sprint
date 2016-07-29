@@ -28,7 +28,7 @@ export class Queue extends Component {
       <div className={ styles.default }>
         <Header />
         <AddVideo />
-        {this.props.queue.map((i, k) => this.renderItem(i, k).bind(this))}
+        {this.props.queue.map((i, k) => this.renderItem(i, k))}
         <Footer>
           <Link to="/">Search</Link>
         </Footer>
