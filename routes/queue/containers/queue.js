@@ -1,26 +1,21 @@
 import { connect } from 'react-redux';
 
 import { Queue } from '../components/queue';
-<<<<<<< 04c3a41613e300734a5c6500fd3f2754d49a9dbd
-import { get as getQueue, remove as removeItem } from 'modules/queue/actions';
-=======
-import { get as getQueue, set as setQueue } from 'modules/queue/actions';
->>>>>>> up move up/down functionality
+import { get as getQueue, remove as removeItem, set as setQueue, addVote } from 'modules/queue/actions';
 
 const mapStateToProps = (state) => {
   return {
-    queue: state.queue
+    queue: state.queue,
+    userId: state.user.id
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     getQueue: () => { dispatch(getQueue()) },
-<<<<<<< 04c3a41613e300734a5c6500fd3f2754d49a9dbd
-    removeVideo: (item) => { dispatch(removeItem(item)) }
-=======
-    setQueue: (queue) => { dispatch(setQueue(queue)) }
->>>>>>> up move up/down functionality
+    removeVideo: (item) => { dispatch(removeItem(item)) },
+    setQueue: (queue) => { dispatch(setQueue(queue)) },
+    addVote: (item, userId) => { dispatch(addVote(item, userId)) }
   };
 };
 

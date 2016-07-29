@@ -43,6 +43,9 @@
   }
 
   .buttonDown, .buttonUp {
+    &:hover {
+      cursor: pointer;
+    }
     width: 2vw;
     height: 2vw;
     transform: translateY(-50%);
