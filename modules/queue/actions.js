@@ -28,9 +28,10 @@ export function pop() {
       .then(json => dispatch(sync(json)));
 };
 
+//for moving items up and down
 export function set(queue) {
   return dispatch =>
-    fetch('/api/queue/put', {
+    fetch('/api/queue', {
         method: 'PUT',
         headers: {
           'Accept': 'application/json',
@@ -62,7 +63,7 @@ export function remove(item) {
         method: 'DELETE',
         headers: {
           'Accept': 'application/json',
-          'Content-Type': 'application/json',
+          'Content-Type': 'application/json'
         },
         body: JSON.stringify(item)
       })
@@ -73,7 +74,7 @@ export function remove(item) {
 export function addVote(item, userId) {
   return dispatch =>
     fetch('/api/queue/vote', {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Accept': 'application/json',
           'Content-Type': 'application/json'

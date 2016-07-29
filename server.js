@@ -57,7 +57,7 @@ app.delete('/api/queue/remove/:isrc', function(req, res) {
   }
 });
 
-app.put('/api/queue/put', function(req, res) {
+app.put('/api/queue', function(req, res) {
   if (req.body.length) {
     QUEUE = req.body;
     res.status(200).json(QUEUE);
@@ -77,7 +77,7 @@ app.post('/api/user', function(req, res) {
   res.status(200).json(currUserId);
 });
 
-app.post('/api/queue/vote', function(req, res) {
+app.put('/api/queue/vote', function(req, res) {
   var video = QUEUE.find(function(v) {
     return v._id === req.body.videoId
   });

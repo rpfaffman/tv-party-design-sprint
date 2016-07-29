@@ -36,6 +36,13 @@ export class Queue extends Component {
     );
   }
 
+
+  voteUp(item, key) {
+    if (!item.votes[this.props.userId]) {
+      this.props.addVote(item, this.props.userId);
+    }
+  }
+
   // moveUpInQueue(item, key) {
   //   //swap current item with prev index item
   //   if (key) { // not first item already
@@ -46,12 +53,6 @@ export class Queue extends Component {
   //     this.props.setQueue(newQueue);
   //   }
   // }
-
-  voteUp(item, key) {
-    if (!item.votes[this.props.userId]) {
-      this.props.addVote(item, this.props.userId);
-    }
-  }
 
   // moveDownInQueue(item, key) {
   //   //swap current item with prev index item
@@ -85,6 +86,3 @@ export class Queue extends Component {
     );
   }
 }
-        // <div className={ styles.buttonDown } onClick={() => this.moveDownInQueue(item, key)}>
-        //   <img src='images/down.svg' />
-        // </div>
