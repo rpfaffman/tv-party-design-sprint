@@ -1,5 +1,4 @@
 // fetch is a global as per documentation
-
 // need to import store to fetch auth token
 import { initialStore as store } from '../.';
 

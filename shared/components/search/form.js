@@ -13,14 +13,6 @@ export default class Form extends Component {
     this.props.onChange(input.value)
   }
 
-  // clear query
-  clear() {
-    const input = this.searchField
-
-    input.value = null
-    this.props.onClear()
-  }
-
   // add character to query
   addChar(char) {
     const input = this.searchField
@@ -33,9 +25,6 @@ export default class Form extends Component {
     return (
       <div className="form-container">
         <input className="search-input-field uppercase" placeholder="search" ref={(ref) => this.searchField = ref} type="text" onChange={() => this.update()} />
-        <div className="buttons top-buttons">
-          <a href="javascript:void(0)" onClick={() => this.clear()} >Clear</a>
-        </div>
       </div>
     )
   }

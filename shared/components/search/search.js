@@ -36,17 +36,11 @@ export default class Search extends Component {
     return this.props.results.artists.length || this.props.results.videos.length
   }
 
-  onClear() {
-    // this.props.dispatch(SearchAction.reset())
-  }
-
   render() {
     return (
       <div className="search">
         <div className="search-form">
-          <Form onChange={(searchTerm) => this.buildQuery(searchTerm) }
-            onClear={() => this.onClear()}
-          />
+          <Form onChange={(searchTerm) => this.buildQuery(searchTerm) }/>
           <Link to="/queue">Queue</Link>
         </div>
         <div className="search-results full-height">
