@@ -3,10 +3,21 @@ import styles from './listItem.scss';
 
 const thumbParamsWide = '?crop=auto&scale=both&width=423&height=220'
 
-const plus = '/images/add@2x.png'
+const PLUS = '/images/add@2x.png'
+const CHECK = '/images/check-icon.svg'
 
 
 export default class ListItem extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { iconSrc: PLUS }
+  }
+
+  onClick() {
+    // only add the first time
+    if (this.state.iconSrc === PLUS) this.props.onClick(this.props.item)
+    this.setState({ iconSrc: CHECK })
+  }
 
   render() {
     const {item} = this.props
@@ -18,8 +29,8 @@ export default class ListItem extends Component {
           <div className={styles.title}>{item.title}</div>
         </div>
         <div className={styles.btnAdd}>
-          <a href="javascript:void(0)" onClick={() => {this.props.onClick(item)}}>
-            <img src={plus} />
+          <a href="javascript:void(0)" onClick={() => this.onClick()}>
+            <img src={this.state.iconSrc} />
           </a>
         </div>
       </div>

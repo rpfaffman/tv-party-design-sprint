@@ -7,7 +7,7 @@ export default class Results extends Component {
   }
 
   renderVideoItem(video, key) {
-    return <ListItem key={key} item={video} onClick={(item) => this.addItem(item) } />
+    return <ListItem key={key} item={video} onClick={ (item) => this.addItem(item) } />
   }
 
   render() {

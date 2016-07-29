@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router'
 
 import Header from './header';
 import AddVideo from './addVideo';
+import Footer from 'components/footer/footer'
+
 import styles from './queue.scss';
 
 const QUEUE_POLL_INTERVAL = 1000;
@@ -18,10 +21,13 @@ export class Queue extends Component {
 
   render() {
     return (
-      <div>
+      <div className={ styles.default }>
         <Header />
         <AddVideo />
         {this.props.queue.map(this.renderItem)}
+        <Footer>
+          <Link to="/">Search</Link>
+        </Footer>
       </div>
     );
   }
