@@ -55,7 +55,6 @@ export function reset() {
 }
 
 /* SYNC */
-
 export function sync(queue) {
   return {
     type: types.SYNC,

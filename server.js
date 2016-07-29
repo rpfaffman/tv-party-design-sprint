@@ -10,12 +10,21 @@ var port = 8080;
 var QUEUE = [];
 
 var compiler = webpack(config);
+
+/* MIDDLEWARE */
 app.use(webpackDevMiddleware(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath
 }));
 app.use(webpackHotMiddleware(compiler));
 app.use(bodyParser.json());
+
+/* ENABLE CORS */
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
 
 app.get('/api/queue', function(req, res) {
   res.status(200).json(QUEUE);
@@ -26,7 +35,7 @@ app.post('/api/queue', function(req, res) {
   res.status(200).json(QUEUE);
 });
 
-app.delete('/api/queue', function(req, res) {
+app.post('/api/queue/pop', function(req, res) {
   if (QUEUE.length) {
     res.status(200).json(QUEUE.shift());
   } else {

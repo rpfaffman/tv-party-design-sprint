@@ -1,7 +1,9 @@
 // fetch is a global as per documentation
 
-const ACCESS_TOKEN = 'Ah6RxW9z5Suxiy8ttLmZDzN4_eHeyxf2SkXbH7XpCjg1.1469754000.W4YRexzkqzrCTUtoxiOsZTHRuZ58a8W1JcjrsoI5TrmMUKsyQs90wJoMz6nMtwsKNi15hRjqVZoUcaSMPOOYV-Mcihk1'
+// need to import store to fetch auth token
+import { initialStore as store } from '../.';
 
+// const ACCESS_TOKEN = 'Ah6RxW9z5Suxiy8ttLmZDzN4_eHeyxf2SkXbH7XpCjg1.1469754000.W4YRexzkqzrCTUtoxiOsZTHRuZ58a8W1JcjrsoI5TrmMUKsyQs90wJoMz6nMtwsKNi15hRjqVZoUcaSMPOOYV-Mcihk1'
 function request(authorization, url, method, body, suppliedHeaders = {}, removeAllHeaders) {
   const headers = removeAllHeaders ? {} : {
     ...authorization,
@@ -28,7 +30,7 @@ function request(authorization, url, method, body, suppliedHeaders = {}, removeA
   send back a resolved Promise with empty value.
 */
 function getAuthorization(bypassAuth = false) {
-      return Promise.resolve({ Authorization: `Bearer ${ACCESS_TOKEN}` })
+  return Promise.resolve({ Authorization: `Bearer ${store.getState().auth.access_token}` })
 }
 
 export function get(url, headers = null, removeAllHeaders = false) {
