@@ -7,7 +7,6 @@ const thumbnailDefault = 'images/thumbnail-default.jpg'
 const PLUS = '/images/add@2x.png'
 const CHECK = '/images/check-icon.svg'
 
-
 export default class ListItem extends Component {
   constructor(props) {
     super(props)
