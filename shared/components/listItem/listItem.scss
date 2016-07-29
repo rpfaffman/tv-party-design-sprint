@@ -6,10 +6,11 @@
 }
 
 .details {
-  text-overflow: ellipsis;
   padding: 0 0 0 10px;
   display: flex;
   flex-direction: column;
+  max-width: 40vw;
+  /*white-space: nowrap;*/
   align-self: center;
   flex: 0 0 40vw;
 }
@@ -23,15 +24,18 @@
 }
 
 .title {
-  width: 50px;
-  max-height: 50px;
-  white-space: nowrap;
+  text-overflow: ellipsis;
+  /*white-space: nowrap;*/
   opacity: 0.46;
-  flex: 0 0 0.1866vh;
+  flex: 0 0 6.866vh;
   width: 33vw;
+  overflow: hidden;
 }
 
 .btnAdd {
   display: inline-block;
   align-self: center;
+  img {
+    height: 4vh;
+  }
 }
