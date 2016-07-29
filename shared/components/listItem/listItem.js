@@ -22,6 +22,7 @@ export default class ListItem extends Component {
 
   render() {
     const {item} = this.props
+    const artistName = item.primaryArtists ? item.primaryArtists[0].name : item.artists[0].name;
     return (
       <div className={styles.default}>
         <img
@@ -31,7 +32,7 @@ export default class ListItem extends Component {
           onError={()=> this.image.src = thumbnailDefault }
         />
         <div className={styles.details}>
-          <div className={styles.artist}>{item.primaryArtists[0].name}</div>
+          <div className={styles.artist}>{artistName}</div>
           <div className={styles.title}>{item.title}</div>
         </div>
         <div className={styles.btnContainer}>
