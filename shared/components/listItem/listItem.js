@@ -34,10 +34,12 @@ export default class ListItem extends Component {
           <div className={styles.artist}>{item.primaryArtists[0].name}</div>
           <div className={styles.title}>{item.title}</div>
         </div>
-        <div className={styles.btnAdd}>
-          <a href="javascript:void(0)" onClick={() => this.onClick()}>
-            <img src={this.state.iconSrc} />
-          </a>
+        <div className={styles.btnContainer}>
+          <div className={styles.btnAdd}>
+            <a href="javascript:void(0)" onClick={() => {this.props.onClick(item)}}>
+              <img src={this.state.iconSrc} />
+            </a>
+          </div>
         </div>
       </div>
     )
