@@ -59,6 +59,7 @@ body {
   font-family: AvenirNext;
   font-weight: 300;
   text-transform: uppercase;
+  position: relative;
 }
 
 a {
@@ -67,7 +68,7 @@ a {
   &:focus { outline: none; }
 }
 
-.list-item {
+/*.list-item {
   display: flex;
   flex-direction: row;
   margin: 5px 0;
@@ -78,3 +79,4 @@ a {
     justify-content: center;
   }
 }
+*/

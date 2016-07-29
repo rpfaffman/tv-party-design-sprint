@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 
 import Form from './form'
 import Results from './results'
+import Footer from 'components/footer/footer'
+
 
 import * as SearchAction from 'modules/search/actions';
 import { add as addToQueue } from 'modules/queue/actions';
@@ -41,13 +43,15 @@ export default class Search extends Component {
   render() {
     return (
       <div className={styles.default}>
-        <div className="search-form">
+        <div className={styles.formContainer}>
           <Form onChange={(searchTerm) => this.buildQuery(searchTerm) }/>
-          <Link to="/queue">Queue</Link>
         </div>
         <div className="search-results full-height">
           <Results results={this.props.results} onClickItem={(item) => this.props.addToQueue(item)} />
         </div>
+        <Footer>
+          <Link to="/queue">Queue</Link>
+        </Footer>
       </div>
     )
   }

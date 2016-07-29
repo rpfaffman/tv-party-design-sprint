@@ -1,25 +1,29 @@
 .default {
-  /*padding: 20px 0 0 50px;*/
 }
 
+.formContainer {
+  height: 10vh;
+}
 .searchInput {
-  border-bottom: solid 1px #979797;
+  margin-bottom: 10px;
+  border-bottom: 1px solid rgba(151, 151, 151, 0.3);
   padding: 10px 0 0 20px;
   img {
     vertical-align: middle;
-    height: 30px;
+    height: 20%;
+    width: 7%;
     padding-right: 10px;
     padding-bottom: 5px;
   }
   input {
     border: none;
-    font-size: 24px;
+    font-size: 4.4vw;
     color: white;
     background-color: black;
-    width: 700px;
+    width: 70%;
     height: 50px;
     display: inline-block;
-    margin: 15px 0 15px 5px;
+    margin-left: 5px;
     font-weight: 300;
     letter-spacing: 2.1px;
     line-height: 0.8;

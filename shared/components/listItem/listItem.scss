@@ -1,15 +1,17 @@
 .default {
   display: flex;
   flex-direction: row;
-  margin: 15px 0;
+  margin: 2% 5%;
+  font-size: 3vw;
 }
 
 .details {
-  padding: 10px 10px 0 10px;
+  text-overflow: ellipsis;
+  padding: 0 0 0 10px;
   display: flex;
   flex-direction: column;
   align-self: center;
-  flex: 0 0 400px;
+  flex: 0 0 40vw;
 }
 
 .artist {
@@ -17,13 +19,16 @@
 }
 
 .thumbnail {
-  height: 143.147px;
+  height: 10.16vh;
 }
 
 .title {
+  width: 50px;
+  max-height: 50px;
+  white-space: nowrap;
   opacity: 0.46;
-  flex: 0 0 100px;
-  width: 300px;
+  flex: 0 0 0.1866vh;
+  width: 33vw;
 }
 
 .btnAdd {
