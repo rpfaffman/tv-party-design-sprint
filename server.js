@@ -28,8 +28,7 @@ app.post('/api/queue', function(req, res) {
 
 app.delete('/api/queue', function(req, res) {
   if (QUEUE.length) {
-    QUEUE.shift();
-    res.status(200).json(QUEUE);
+    res.status(200).json(QUEUE.shift());
   } else {
     res.status(500).json(QUEUE);
   }
