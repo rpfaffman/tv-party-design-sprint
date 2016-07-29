@@ -28,7 +28,7 @@ export default class Form extends Component {
     return (
       <div className={style.searchInput}>
         <img src={searchIcon} />
-        <input placeholder="search" ref={(ref) => this.searchField = ref} type="text" onChange={() => this.update()} />
+        <input placeholder="Search Vevo" ref={(ref) => this.searchField = ref} type="text" onChange={() => this.update()} />
       </div>
     )
   }
