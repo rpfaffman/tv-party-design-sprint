@@ -17,7 +17,6 @@ export default class ListItem extends Component {
           <h2 className="artist-name">{item.primaryArtists[0].name}</h2>
           <h3 className="video-title">{item.title}</h3>
         </div>
-        <a href="javascript:void(0)">Add</a>
         <div className="btn-add">
           <a href="javascript:void(0)" onClick={() => {this.props.onClick(item)}}>Add</a>
         </div>

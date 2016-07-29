@@ -21,23 +21,16 @@ export class Queue extends Component {
         <h1>Playlist Queue</h1>
         <h2>+ Add Video</h2>
         {this.props.queue.map(this.renderItem)}
-        <h2>QUEUE - SEARCH</h2>
+        <Link to="/">Search</Link>
       </div>
     );
   }
 
   renderItem(item, key) {
     return (
-      <div>
-        <h1>Hit the queue</h1>
-        <h3 onClick={this.addToQueue}>add</h3>
-        <h3 onClick={this.popQueue}>pop</h3>
-        <h5>here's the queue</h5>
-        <div>
-          {JSON.stringify(queue)}
-        </div>
-        <Link to="/">Search</Link>
-      </div>
+      <p>
+        {JSON.stringify(item)}
+      </p>
     );
   }
 }
