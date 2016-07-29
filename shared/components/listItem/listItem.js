@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import styles from './ListItem.scss';
+import styles from './listItem.scss';
 
 const thumbParamsWide = '?crop=auto&scale=both&width=423&height=220'
 

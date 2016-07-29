@@ -16,6 +16,7 @@ app.use(webpackDevMiddleware(compiler, {
   noInfo: true,
   publicPath: config.output.publicPath
 }));
+app.use(require('express').static('assets'));
 app.use(webpackHotMiddleware(compiler));
 app.use(bodyParser.json());
 
