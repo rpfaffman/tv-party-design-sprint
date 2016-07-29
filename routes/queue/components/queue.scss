@@ -34,10 +34,38 @@
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    padding: 5px 5px;
-    margin-right: 8vw;
+    padding: 5px;
+    margin-right: 12vw;
     cursor: pointer;
     border: 1px solid white;
     border-radius: 50%;
+  }
+
+  .buttonDown, .buttonUp {
+    &:hover {
+      cursor: pointer;
+    }
+    width: 2vw;
+    height: 2vw;
+    transform: translateY(-50%);
+    right: 3vw;
+    padding-right: 3vw;
+    position: absolute;
+    img {
+      height: 100%;
+    }
+  }
+
+  .buttonUp {
+    top: 20%;
+    img {
+      transform: rotate(180deg);
+    }
+
+  }
+
+  .buttonDown {
+    position: absolute;
+    top: 70%;
   }
 }

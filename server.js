@@ -8,6 +8,9 @@ var app = new require('express')();
 var port = process.env.PORT || 8080;
 
 var QUEUE = [];
+var currUserId = -1;
+var USERS = {};
+
 
 var compiler = webpack(config);
 
@@ -54,10 +57,40 @@ app.delete('/api/queue/remove/:isrc', function(req, res) {
   }
 });
 
+app.put('/api/queue', function(req, res) {
+  if (req.body.length) {
+    QUEUE = req.body;
+    res.status(200).json(QUEUE);
+  } else {
+    res.status(500).json(QUEUE);
+  }
+});
+
 app.delete('/api/queue/reset', function(req, res) {
   QUEUE = [];
   res.status(200).json(QUEUE)
 })
+
+app.post('/api/user', function(req, res) {
+  USERS[currUserId] = true;
+  currUserId += 1;
+  res.status(200).json(currUserId);
+});
+
+app.put('/api/queue/vote', function(req, res) {
+  var video = QUEUE.find(function(v) {
+    return v._id === req.body.videoId
+  });
+  video.votes[req.body.userId] = true;
+  video.voteCount = video.voteCount + 1 || 1;
+  QUEUE.sort(function(a,b) {
+    if (b.voteCount > a.voteCount) return 1;
+    return -1;
+  })
+  res.status(200).json(QUEUE);
+});
+
+
 
 app.use(function(req, res) {
   res.sendFile(__dirname + '/index.html');
