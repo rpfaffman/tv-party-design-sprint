@@ -3,14 +3,16 @@
 }
 
 .item {
-  background-color: green;
+  transition: background-color 0.5s;
+  background-color: black;
   position: relative;
   max-height: 25vw;
   overflow-y: hidden;
   font-size: 4.26666667vw;
 
   .background-img {
-    transition: opacity 0.5s;
+    background-color: blue;
+    opacity: 0.6;
     width: 100%;
   }
 

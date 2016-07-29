@@ -6,7 +6,7 @@ import { get as getQueue, remove as removeItem, set as setQueue, addVote } from 
 const mapStateToProps = (state) => {
   return {
     queue: state.queue,
-    userId: state.user.id
+    userId: state.user && state.user.id
   };
 };
 

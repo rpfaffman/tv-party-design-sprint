@@ -10,10 +10,13 @@ import styles from './queue.scss';
 const QUEUE_POLL_INTERVAL = 1000;
 
 export class Queue extends Component {
+  componentWillMount() {
+    this._activeStyles = this.activeStyles.bind(this);
+  }
+
   componentDidMount() {
     this.props.getQueue();
     this.pollQueueInterval = setInterval(this.pollQueue.bind(this), QUEUE_POLL_INTERVAL);
-    this._activeStyles = this.activeStyles.bind(this);
   }
 
   componentWillUnmount() { clearInterval(this.pollQueueInterval); }
@@ -44,14 +47,14 @@ export class Queue extends Component {
   }
 
   activeStyles(item) {
-    return item.votes[this.props.userId] ? { opacity: 0.8 } : {}
+    return item.votes[this.props.userId] ? { backgroundColor: 'green' } : {}
   }
 
   renderItem(item, key) {
-    const artistName = item.primaryArtists && item.primaryArtists[0].name;
+    const artistName = item.primaryArtists ? item.primaryArtists[0].name : item.artists[0].name;
     return (
-      <div className={styles.item}>
-        <img className={ styles['background-img'] } style={this._activeStyles(item)} src={ item.thumbnailUrl } />
+      <div className={styles.item} style={this._activeStyles(item)}>
+        <img className={ styles['background-img'] } src={ item.thumbnailUrl } />
         <div className={ styles.info }>
           <span className={ styles.artist }>{ artistName }</span>
           <br/>

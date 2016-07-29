@@ -35,18 +35,14 @@
   overflow: hidden;
 }
 
-.btnContainer {
-  display: flex;
-  flex-basis: 33vw;
-  justify-content: center;
-}
-
 .btnAdd {
-  display: inline-block;
-  align-self: center;
-  height: 4.28vw;
-  padding-left: 4vw;
   img {
-    height: 4.28vw;
+    cursor: pointer;
+    margin-top: 8vw;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 8vw;
+    height: 8vw;
   }
 }
