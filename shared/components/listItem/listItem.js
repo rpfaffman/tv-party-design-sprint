@@ -3,7 +3,7 @@ import styles from './listItem.scss';
 
 const thumbParamsWide = '?crop=auto&scale=both&width=423&height=220'
 
-const plus = 'http://imgur.com/8LZUUng.png'
+const plus = '/images/add@2x.png'
 
 
 export default class ListItem extends Component {

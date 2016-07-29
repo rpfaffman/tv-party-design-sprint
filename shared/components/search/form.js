@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import style from './search.scss'
 
-const searchIcon = 'http://imgur.com/6W6Q6ET.png'
+const searchIcon = '/images/search-icon@2x.png'
+
 
 export default class Form extends Component {
 
