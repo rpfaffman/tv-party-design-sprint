@@ -39,5 +39,31 @@
     cursor: pointer;
     border: 1px solid white;
     border-radius: 50%;
+    /*padding-right: 12vw;*/
+  }
+
+  .buttonDown, .buttonUp {
+    width: 2vw;
+    height: 2vw;
+    transform: translateY(-50%);
+    right: 3vw;
+    padding-right: 3vw;
+    position: absolute;
+    img {
+      height: 100%;
+    }
+  }
+
+  .buttonUp {
+    top: 20%;
+    img {
+      transform: rotate(180deg);
+    }
+
+  }
+
+  .buttonDown {
+    position: absolute;
+    top: 70%;
   }
 }

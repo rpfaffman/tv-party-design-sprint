@@ -28,6 +28,20 @@ export function pop() {
       .then(json => dispatch(sync(json)));
 };
 
+export function set(queue) {
+  return dispatch =>
+    fetch('/api/queue/put', {
+        method: 'PUT',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(queue)
+      })
+      .then(res => res.json())
+      .then(json => dispatch(sync(json)));
+};
+
 export function add(item) {
   return dispatch =>
     fetch('/api/queue', {

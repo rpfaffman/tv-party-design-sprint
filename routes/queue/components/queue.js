@@ -20,7 +20,7 @@ export class Queue extends Component {
   pollQueue() { this.props.getQueue(); }
 
   onRemove(item) {
-    if (confirm('Remove video from queue?')) this.props.removeVideo(item); 
+    if (confirm('Remove video from queue?')) this.props.removeVideo(item);
   }
 
   render() {
@@ -28,12 +28,34 @@ export class Queue extends Component {
       <div className={ styles.default }>
         <Header />
         <AddVideo />
-        {this.props.queue.map((i, k) => this.renderItem(i, k))}
+        {this.props.queue.map((i, k) => this.renderItem(i, k).bind(this))}
         <Footer>
           <Link to="/">Search</Link>
         </Footer>
       </div>
     );
+  }
+
+  moveUpInQueue(item, key) {
+    //swap current item with prev index item
+    if (key) { // not first item already
+      const newQueue = this.props.queue.slice(0);
+      const temp = newQueue[key - 1];
+      newQueue[key - 1] = item;
+      newQueue[key] = temp;
+      this.props.setQueue(newQueue);
+    }
+  }
+
+  moveDownInQueue(item, key) {
+    //swap current item with prev index item
+    if (key !== this.props.queue.length - 1) { // not first item already
+      const { queue } = this.props;
+      const temp = queue[key + 1];
+      queue[key + 1] = item;
+      queue[key] = temp;
+      this.props.setQueue(queue);
+    }
   }
 
   renderItem(item, key) {
@@ -47,6 +69,13 @@ export class Queue extends Component {
           <span>{ item.title }</span>
         </div>
         <img src='images/close-icon.svg' className={ styles['close-icon'] } onClick={() => this.onRemove(item)} />
+        <img src='images/check-icon.svg' className={ styles['check-icon'] } />
+        <div className={ styles.buttonUp } onClick={() => this.moveUpInQueue(item, key)}>
+          <img src='images/down.svg' />
+        </div>
+        <div className={ styles.buttonDown } onClick={() => this.moveDownInQueue(item, key)}>
+          <img src='images/down.svg' />
+        </div>
       </div>
     );
   }
