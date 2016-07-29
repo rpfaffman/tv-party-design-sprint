@@ -44,6 +44,16 @@ app.post('/api/queue/pop', function(req, res) {
   }
 });
 
+app.delete('/api/queue/remove/:isrc', function(req, res) {
+  var target = QUEUE.filter(function(x) { return (x.isrc === req.params.isrc) })[0]
+  if (target) {
+    QUEUE.splice(QUEUE.indexOf(target), 1);
+    res.status(200).json(QUEUE);
+  } else {
+    res.status(500).json(QUEUE);
+  }
+});
+
 app.delete('/api/queue/reset', function(req, res) {
   QUEUE = [];
   res.status(200).json(QUEUE)

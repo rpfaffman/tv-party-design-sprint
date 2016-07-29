@@ -19,12 +19,16 @@ export class Queue extends Component {
 
   pollQueue() { this.props.getQueue(); }
 
+  onRemove(item) {
+    if (confirm('Remove video from queue?')) this.props.removeVideo(item); 
+  }
+
   render() {
     return (
       <div className={ styles.default }>
         <Header />
         <AddVideo />
-        {this.props.queue.map(this.renderItem)}
+        {this.props.queue.map((i, k) => this.renderItem(i, k))}
         <Footer>
           <Link to="/">Search</Link>
         </Footer>
@@ -42,7 +46,7 @@ export class Queue extends Component {
           <br/>
           <span>{ item.title }</span>
         </div>
-        <img src='images/check-icon.svg' className={ styles['check-icon'] } />
+        <img src='images/close-icon.svg' className={ styles['close-icon'] } onClick={() => this.onRemove(item)} />
       </div>
     );
   }

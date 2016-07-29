@@ -29,11 +29,15 @@
     font-weight: bold;
   }
 
-  .check-icon {
+  .close-icon {
     position: absolute;
     top: 50%;
     right: 0;
     transform: translateY(-50%);
-    padding-right: 8vw;
+    padding: 5px 5px;
+    margin-right: 8vw;
+    cursor: pointer;
+    border: 1px solid white;
+    border-radius: 50%;
   }
 }

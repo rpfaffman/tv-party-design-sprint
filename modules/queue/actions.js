@@ -42,6 +42,20 @@ export function add(item) {
       .then(json => dispatch(sync(json)));
 };
 
+export function remove(item) {
+  return dispatch =>
+    fetch(`/api/queue/remove/${item.isrc}`, {
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(item)
+      })
+      .then(res => res.json())
+      .then(json => dispatch(sync(json)));
+};
+
 export function reset() {
   return dispatch =>
     fetch('/api/queue/reset', {
