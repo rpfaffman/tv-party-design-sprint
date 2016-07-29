@@ -46,7 +46,7 @@ export default class Search extends Component {
         <div className={styles.formContainer}>
           <Form onChange={(searchTerm) => this.buildQuery(searchTerm) }/>
         </div>
-        <div className="search-results full-height">
+        <div className={styles.resultsContainer}>
           <Results results={this.props.results} onClickItem={(item) => this.props.addToQueue(item)} />
         </div>
         <Footer>
