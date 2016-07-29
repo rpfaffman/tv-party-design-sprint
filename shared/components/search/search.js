@@ -1,14 +1,12 @@
 import React, { Component, PropTypes } from 'react'
-import { browserHistory } from 'react-router'
+import { Link } from 'react-router'
 import { connect } from 'react-redux'
 
 import Form from './form'
 import Results from './results'
 
 import * as SearchAction from 'modules/search/actions';
-// import * as NavActions from '../actions/navigation'
-// import * as KeyActions from '../constants/keyactions'
-// import * as SC from '../constants/Search'
+import { add as addToQueue } from 'modules/queue/actions';
 
 export default class Search extends Component {
 
@@ -19,23 +17,18 @@ export default class Search extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.form.query.length > 0 &&
         nextProps.form.query.length !== this.props.form.query.length) {
-      this.props.dispatch(SearchAction.search(nextProps.form.query))
+      this.props.search(nextProps.form.query)
     }
-  }
-
-  componentDidMount() {
-    // this.props.dispatch(SearchAction.loadDefaultArtists())
-    // this.props.dispatch(SearchAction.loadDefaultVideos())
   }
 
   buildQuery(searchTerm) {
     // there is a search term
     if (searchTerm && searchTerm.length > 0) {
-      this.props.dispatch(SearchAction.buildQuery(searchTerm))
+      this.props.buildQuery(searchTerm)
 
     // The term has been cleared out or is not present
     } else {
-      this.props.dispatch(SearchAction.reset())
+      // this.props.dispatch(SearchAction.reset())
     }
   }
 
@@ -47,25 +40,17 @@ export default class Search extends Component {
     // this.props.dispatch(SearchAction.reset())
   }
 
-  onSearch() {
-    this.props.dispatch(SearchAction.search(this.props.form.query))
-  }
-
-  inFocus(component) {
-    return (this.props.activeComponent === component)
-  }
-
   render() {
     return (
       <div className="search">
         <div className="search-form">
           <Form onChange={(searchTerm) => this.buildQuery(searchTerm) }
             onClear={() => this.onClear()}
-            onSearch={() => this.onSearch()}
           />
+          <Link to="/queue">Queue</Link>
         </div>
         <div className="search-results full-height">
-          <Results results={this.props.results} />
+          <Results results={this.props.results} onClickItem={(item) => this.props.addToQueue(item)} />
         </div>
       </div>
     )
@@ -81,4 +66,12 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Search)
+function mapDispatchToProps(dispatch) {
+  return {
+    addToQueue: (item) => { dispatch(addToQueue(item)) },
+    search: (query) => { dispatch(SearchAction.search(query)) },
+    buildQuery: (query) => { dispatch (SearchAction.buildQuery(query)) }
+  };
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Search)

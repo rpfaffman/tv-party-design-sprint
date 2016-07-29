@@ -7,19 +7,20 @@ const thumbParamsWide = '?crop=auto&scale=both&width=423&height=220'
 
 
 export default class ListItem extends Component {
+
   render() {
     const {item} = this.props
     return (
       <div className={styles.default}>
         <img src={`${item.thumbnailUrl}${thumbParamsWide}`} />
         <div className="details">
-          <h1 className="artist-name">{item.primaryArtists[0].name}</h1>
+          <h2 className="artist-name">{item.primaryArtists[0].name}</h2>
           <h3 className="video-title">{item.title}</h3>
         </div>
-        <a href="javascript:void(0)"></a>
-        <a href="javascript:void(0)"></a>
-        <a href="javascript:void(0)"></a>
         <a href="javascript:void(0)">Add</a>
+        <div className="btn-add">
+          <a href="javascript:void(0)" onClick={() => {this.props.onClick(item)}}>Add</a>
+        </div>
       </div>
     )
   }

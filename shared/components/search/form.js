@@ -1,10 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-// import * as SearchAction from '../../actions/search'
-// import * as KeyActions from '../../constants/keyactions'
-// import * as SC from '../../constants/Search'
-
 export default class Form extends Component {
 
   // not all of the form components have the same number
@@ -13,7 +9,6 @@ export default class Form extends Component {
 
   // update the search query
   update() {
-    console.log('updating')
     const input = this.searchField
     this.props.onChange(input.value)
   }
@@ -46,11 +41,3 @@ export default class Form extends Component {
   }
 }
 
-
-function mapStateToProps(state) {
-  return {
-    // query: state.search.form.query,
-  }
-}
-
-export default connect(mapStateToProps)(Form)
