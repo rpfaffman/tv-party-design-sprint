@@ -1,6 +1,7 @@
 // fetch is a global as per documentation
 
-const ACCESS_TOKEN = 'Ah6RxW9z5Suxiy8ttLmZDzN4_eHeyxf2SkXbH7XpCjg1.1469746800.FAXtH0bz4onhDlosROHGhm5CY4zVqMftbJMbHtmn4jWLz_LqlFLq_p9KASczFRxCavcFyVVWyFsE421Gn1kZDifFVOg1'
+const ACCESS_TOKEN = 'Ah6RxW9z5Suxiy8ttLmZDzN4_eHeyxf2SkXbH7XpCjg1.1469754000.W4YRexzkqzrCTUtoxiOsZTHRuZ58a8W1JcjrsoI5TrmMUKsyQs90wJoMz6nMtwsKNi15hRjqVZoUcaSMPOOYV-Mcihk1'
+// 'Ah6RxW9z5Suxiy8ttLmZDzN4_eHeyxf2SkXbH7XpCjg1.1469754000.W4YRexzkqzrCTUtoxiOsZTHRuZ58a8W1JcjrsoI5TrmMUKsyQs90wJoMz6nMtwsKNi15hRjqVZoUcaSMPOOYV-Mcihk1'
 
 function request(authorization, url, method, body, suppliedHeaders = {}, removeAllHeaders) {
   const headers = removeAllHeaders ? {} : {

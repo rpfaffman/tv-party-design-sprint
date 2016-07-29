@@ -41,6 +41,19 @@ export function add(item) {
       .then(json => dispatch(sync(json)));
 };
 
+export function reset() {
+  return dispatch =>
+    fetch('/api/queue/reset', {
+        method: 'DELETE',
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+      .then(res => res.json())
+      .then(json => dispatch(sync(json)));
+}
+
 /* SYNC */
 
 export function sync(queue) {

@@ -35,6 +35,11 @@ app.delete('/api/queue', function(req, res) {
   }
 });
 
+app.delete('/api/queue/reset', function(req, res) {
+  QUEUE = [];
+  res.status(200).json(QUEUE)
+})
+
 app.use(function(req, res) {
   res.sendFile(__dirname + '/index.html');
 });
