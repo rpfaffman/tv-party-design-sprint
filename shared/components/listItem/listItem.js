@@ -3,7 +3,7 @@ import styles from './listItem.scss';
 
 const thumbParamsWide = '?crop=auto&scale=both&width=423&height=220'
 
-// import logo from 'images/add.png'
+const plus = 'http://imgur.com/8LZUUng.png'
 
 
 export default class ListItem extends Component {
@@ -18,7 +18,9 @@ export default class ListItem extends Component {
           <div className={styles.title}>{item.title}</div>
         </div>
         <div className={styles.btnAdd}>
-          <a href="javascript:void(0)" onClick={() => {this.props.onClick(item)}}>Add</a>
+          <a href="javascript:void(0)" onClick={() => {this.props.onClick(item)}}>
+            <img src={plus} />
+          </a>
         </div>
       </div>
     )

@@ -1,0 +1,17 @@
+.default {
+  padding: 20px 0 0 50px;
+}
+
+.searchInput {
+  padding: 10px 0;
+  img {
+    vertical-align: middle;
+    height: 20px;
+    padding-right: 10px;
+  }
+  input {
+    width: 500px;
+    display: inline-block;
+    margin: 15px 0 15px 5px;
+  }
+}

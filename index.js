@@ -29,9 +29,6 @@ render(
     <Provider store={ initialStore }>
       <ReduxRouter routes={ routes } />
     </Provider>
-    <DebugPanel top right bottom>
-      <DevTools store={ initialStore } monitor={ LogMonitor } />
-    </DebugPanel>
   </div>,
   document.getElementById('root')
 );

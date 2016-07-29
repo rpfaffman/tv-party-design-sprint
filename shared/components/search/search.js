@@ -8,6 +8,8 @@ import Results from './results'
 import * as SearchAction from 'modules/search/actions';
 import { add as addToQueue } from 'modules/queue/actions';
 
+import styles from './search.scss';
+
 export default class Search extends Component {
 
   shouldComponentUpdate(nextProps) {
@@ -38,7 +40,7 @@ export default class Search extends Component {
 
   render() {
     return (
-      <div className="search">
+      <div className={styles.default}>
         <div className="search-form">
           <Form onChange={(searchTerm) => this.buildQuery(searchTerm) }/>
           <Link to="/queue">Queue</Link>

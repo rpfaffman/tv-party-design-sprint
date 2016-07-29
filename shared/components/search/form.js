@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
+import style from './search.scss'
+
+const searchIcon = 'http://imgur.com/6W6Q6ET.png'
 
 export default class Form extends Component {
 
@@ -23,8 +26,9 @@ export default class Form extends Component {
 
   render() {
     return (
-      <div className="form-container">
-        <input className="search-input-field uppercase" placeholder="search" ref={(ref) => this.searchField = ref} type="text" onChange={() => this.update()} />
+      <div className={style.searchInput}>
+        <img src={searchIcon} />
+        <input placeholder="search" ref={(ref) => this.searchField = ref} type="text" onChange={() => this.update()} />
       </div>
     )
   }
