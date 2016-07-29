@@ -36,7 +36,7 @@ export default class ListItem extends Component {
         </div>
         <div className={styles.btnContainer}>
           <div className={styles.btnAdd}>
-            <a href="javascript:void(0)" onClick={() => {this.props.onClick(item)}}>
+            <a href="javascript:void(0)" onClick={() => {this.onClick(item)}}>
               <img src={this.state.iconSrc} />
             </a>
           </div>
