@@ -1,0 +1,35 @@
+.item {
+  position: relative;
+  max-height: 20vh;
+  overflow-y: hidden;
+  font-size: 4.26666667vw;
+
+  .background-img {
+    width: 100%;
+    opacity: 0.5;
+  }
+
+  .info {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    padding-left: 8vw;
+    font-size: 0.75em;
+    max-width: 70vw;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .artist {
+    font-weight: bold;
+  }
+
+  .check-icon {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    padding-right: 8vw;
+  }
+}
