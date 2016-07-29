@@ -57,8 +57,6 @@ export default class Search extends Component {
   }
 }
 
-// Search.defaultProps = { activeComponent: SC.FORM }
-
 function mapStateToProps(state) {
   return {
     form: state.search.form,
