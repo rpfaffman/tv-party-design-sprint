@@ -1,20 +1,29 @@
 .default {
   display: flex;
   flex-direction: row;
-  margin: 5px 0;
+  margin: 5px 15px;
 }
 
 .details {
-  padding: 0 10px;
+  padding: 10px 10px 0 10px;
+  display: flex;
   flex-direction: column;
+  align-self: center;
+  flex: 0 0 400px;
 }
 
 .artist {
   font-weight: 500;
 }
 
+.thumbnail {
+  height: 143.147px;
+}
+
 .title {
   opacity: 0.46;
+  flex: 0 0 100px;
+  width: 300px;
 }
 
 .btnAdd {
