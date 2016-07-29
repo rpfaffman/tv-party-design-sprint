@@ -33,11 +33,12 @@ export class Queue extends Component {
   }
 
   renderItem(item, key) {
+    const artistName = item.primaryArtists && item.primaryArtists[0].name;
     return (
       <div className={ styles.item }>
         <img className={ styles['background-img'] } src={ item.thumbnailUrl } />
         <div className={ styles.info }>
-          <span className={ styles.artist }>{ item.primaryArtists[0].name }</span>
+          <span className={ styles.artist }>{ artistName }</span>
           <br/>
           <span>{ item.title }</span>
         </div>
